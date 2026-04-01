@@ -50,11 +50,21 @@ window.onload = function () {
     });
 
     // ----- Camera 1 -----
-    var camera1 = L.marker([-7.118397609222043, 112.4150991611979], { icon: customIcon })
-        .addTo(map)
-        .bindPopup(<iframe width="560" height="315" src="https://www.youtube.com/embed/trnL2kr8P0M?si=g6xZ5tYcVnsa848a&amp;controls=0&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>);
-
-    // ----- Camera 2 -----
+   var camera1 = L.marker([-7.118397609222043, 112.4150991611979], { icon: customIcon })
+    .addTo(map)
+    .bindPopup(`
+        <div style="width:300px">
+            <b>Kamera 1 - Livestream</b><br>
+            <iframe 
+                width="100%" 
+                height="200" 
+                src="https://www.youtube.com/embed/trnL2kr8P0M?autoplay=1&mute=1&controls=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+    `);    // ----- Camera 2 -----
     var camera2 = L.marker([-7.116, 112.418], { icon: customIcon })
         .addTo(map)
         .bindPopup('Kamera 2</b><br><img src="Kamera1.jpg" alt="Kamera 1" width="200">');
