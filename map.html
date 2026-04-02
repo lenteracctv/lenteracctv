@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinas Perhubungan | PETA</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+        <a class="logo">
+        <img src="logodishub.png" alt="Logo Dishub">
+        Dinas Perhubungan Lamongan </a>
+    <nav>
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="daftar.html" class="nav-link">Ubah Ke Tampilan Daftar</a>
+    </nav>
+</header>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+window.onload = function () {
+
+    // Map center
+    var lamongan = [-7.118397609222043, 112.4150991611979];
+    var map = L.map('map').setView(lamongan, 14);
+
+    // Tile layer
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: 'Dinas Perhubungan Lamongan'
+    }).addTo(map);
+
+    // Custom icon
+    var customIcon = L.icon({
+        iconUrl: 'marker-icon.png',  // replace with your icon
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    // ----- Camera 1 -----
+    var camera1 = L.marker([-7.130372, 112.421162], { icon: customIcon })
+        .addTo(map)
+        .bindPopup('<b>Jl. Veteran</b><br><img src="Kamera1.jpg" alt="Kamera 1" width="200">');
+
+    // ----- Camera 2 -----
+    var camera2 = L.marker([-7.130435, 112.421229], { icon: customIcon })
+        .addTo(map)
+        .bindPopup('<b>Jl. Tambakboyo</b><br><img src="Kamera1.jpg" alt="Kamera 1" width="200">');
+
+    // ----- Camera 3 -----
+    var camera3 = L.marker([-7.130416, 112.421076], { icon: customIcon })
+        .addTo(map)
+        .bindPopup('<b>Jl. Sumargo</b><br><img src="Kamera1.jpg" alt="Kamera 1" width="200">');
+    
+    // ----- Camera 4 -----
+    var camera4 = L.marker([-7.119596, 112.415065], { icon: customIcon })
+        .addTo(map)
+        .bindPopup('<b>Jl. Achmad Yani</b><br><img src="Kamera1.jpg" alt="Kamera 1" width="200">');
+
+};
+</script>
+
+</body>
+</html>
